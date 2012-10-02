@@ -6,5 +6,5 @@
  * To change this template use File | Settings | File Templates.
  */
 public class SquareImages {
-    public enum imageEnum{turnNE, turnSE, turnSW, turnNW, straightV, straightH, junctionE, junctionS, junctionW, junctionN};
+    public enum imageEnum{turnNE, turnSE, turnSW, turnNW, straightV, straightH, junctionE, junctionS, junctionW, junctionN, arrowN, arrowE, arrowS, arrowW, emptySquare};
 }

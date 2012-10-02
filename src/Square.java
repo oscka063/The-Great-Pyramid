@@ -29,10 +29,11 @@ public abstract class Square {
     }
     public abstract SquareImages.imageEnum getType();
 
-    public void getFixedSquare(SquareGenerator.squareType type, int rotation) {
-        myGenerator.getFixedSquare(type, rotation);
+    public Square getFixedSquare(SquareGenerator.squareType type, int rotation) {
+        return myGenerator.getFixedSquare(type, rotation);
+
     }
-    public void getRandomSquare() {
-        myGenerator.getRandomSquare();
+    public Square getRandomSquare() {
+        return myGenerator.getRandomSquare();
     }
 }
