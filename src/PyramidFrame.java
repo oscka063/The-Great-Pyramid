@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 /**
@@ -14,37 +16,38 @@ import java.util.LinkedList;
  */
 public class PyramidFrame extends JFrame{
 
-    private int columns = 3;
-    private int rows = 3;
 
 
+    JPanel boardPanel = new JPanel();
     BoardViewer myBoardViewer;
-    //ArrowViewer myArrowViewerN, myArrowViewerE, myArrowViewerS, myArrowViewerW;
-    private LinkedList<ArrowViewer> myArrowViewers = new LinkedList() ;
+    ArrowViewer myArrowViewerN, myArrowViewerE, myArrowViewerS, myArrowViewerW;
+    //private LinkedList<ArrowViewer> myArrowViewers = new LinkedList() ;
+    private JButton[] myArrowViewers = new JButton[12];    //Testa mer med JComponent
+
+    MouseAdapter myMA = new MouseAdapterMod();
+
     private int aViewerCount = 0;
+
 
     public PyramidFrame(String title, Board pyramidBoard) throws HeadlessException  {
         super(title);
         myBoardViewer = new BoardViewer(pyramidBoard);
-        setSize(970, 1000);
-
+        setSize(1300, 630);
+        setResizable(false);
         initLayout();
         createMenus();
     }
 
 
     private void initLayout() {
-        /*
+/*
         myArrowViewerN = new ArrowViewer('N');
         myArrowViewerE = new ArrowViewer('E');
-        */
-        //myArrowViewerS = new ArrowViewer('S');
-        //myArrowViewerW = new ArrowViewer('W');
+        myArrowViewerS = new ArrowViewer('S');
+        myArrowViewerW = new ArrowViewer('W');
 
-        GridBagLayout gbl= new GridBagLayout();
-        setLayout(gbl);
-        GridBagConstraints c = new GridBagConstraints();
-/*
+
+
         c.fill =GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 0;
@@ -90,7 +93,16 @@ public class PyramidFrame extends JFrame{
         c.gridwidth = 7;
         c.gridheight = 1;
         add(myArrowViewerN, c);
-        */
+*/
+        GridLayout mainLayout = new GridLayout(1,2);
+
+        GridBagLayout gbl= new GridBagLayout();
+        setLayout(mainLayout);
+        boardPanel.setLayout(gbl);
+        add(boardPanel);
+        boardPanel.addMouseListener(myMA);
+        add(new JTextArea(20, 100));
+        GridBagConstraints c = new GridBagConstraints();
 
 
 
@@ -100,109 +112,133 @@ public class PyramidFrame extends JFrame{
         c.gridy = 0;
         c.weightx = 0.1;
         c.weighty = 0.1;
-        c.anchor = GridBagConstraints.CENTER;
-        add(new EmptySquare());
+        c.anchor = GridBagConstraints.PAGE_START;
+        boardPanel.add(new EmptySquare(), c);
+
 
         for (int i = 1; i < 8; i++) {
             if((i % 2) != 0) {
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
                 c.gridy = 0;
-                add(new EmptySquare(), c);
+                boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers.addFirst(new ArrowViewer('S'));
+                myArrowViewers[aViewerCount] = (new JButton("S"));
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
                 c.gridy = 0;
-                add(myArrowViewers.peek(), c);
+                boardPanel.add(myArrowViewers[aViewerCount], c);
                 aViewerCount++;
             }
         }
         c.fill =GridBagConstraints.BOTH;
         c.gridx = 8;
         c.gridy = 0;
-        add(new EmptySquare());
+        boardPanel.add(new EmptySquare(), c);
 
         //Sets the left column
+        c.weightx = 0.2;
+
         for (int i = 1; i < 8; i++) {
             if((i % 2) != 0) {
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = 0;
                 c.gridy = i;
-                add(new EmptySquare(), c);
+                boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers.addFirst(new ArrowViewer('E'));
+                myArrowViewers[aViewerCount] = (new JButton("E"));
                 c.fill =GridBagConstraints.BOTH;
-                c.gridx = i;
-                c.gridy = 0;
-                c.weightx = 0.2;
-                c.weighty = 0.2;
+                c.gridx = 0;
+                c.gridy = i;
                 c.anchor = GridBagConstraints.CENTER;
-                add(myArrowViewers.peek(), c);
+                boardPanel.add(myArrowViewers[aViewerCount], c);
                 aViewerCount++;
             }
         }
         c.fill =GridBagConstraints.BOTH;
         c.gridx = 0;
         c.gridy = 8;
-        add(new EmptySquare(), c);
+        boardPanel.add(new EmptySquare(), c);
 
         //Sets the board in the center
         c.fill =GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.2;
-        c.weighty = 0.5;
+        c.weighty = 0.2;
         c.gridheight = 7;
         c.gridwidth = 7;
         c.anchor = GridBagConstraints.CENTER;
-        add(myBoardViewer, c);
+        boardPanel.add(myBoardViewer, c);
 
 
         //Sets the column to the right of the board
+
+        c.weightx = 0.1;
+        c.weighty = 0.1;
+        c.gridheight = 1;
+        c.gridwidth = 1;
         for (int i = 1; i < 8; i++) {
             if((i % 2) != 0) {
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = 8;
                 c.gridy = i;
-                add(new EmptySquare(), c);
+                boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers.addFirst(new ArrowViewer('W'));
+                myArrowViewers[aViewerCount] = (new JButton("W"));
                 c.fill =GridBagConstraints.BOTH;
-                c.gridx = i;
-                c.gridy = 0;
-                add(myArrowViewers.peek(), c);
+                c.gridx = 8;
+                c.gridy = i;
+                boardPanel.add(myArrowViewers[aViewerCount], c);
                 aViewerCount++;
             }
         }
 
         //Sets the bottom row
+        c.weightx = 0.2;
+        c.weighty = 0.2;
+
         for (int i = 1; i < 8; i++) {
             if((i % 2) != 0) {
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
                 c.gridy = 8;
-                add(new EmptySquare(), c);
+                boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers.addFirst(new ArrowViewer('N'));
+                myArrowViewers[aViewerCount] = new JButton("N");
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
-                c.gridy = 0;
-                add(myArrowViewers.peek(), c);
+                c.gridy = 8;
+                boardPanel.add(myArrowViewers[aViewerCount], c);
                 aViewerCount++;
             }
         }
         c.fill =GridBagConstraints.BOTH;
         c.gridx = 8;
         c.gridy = 8;
-        add(new EmptySquare(), c);
+        boardPanel.add(new EmptySquare(), c);
+
 
     }
 
+    class MouseAdapterMod extends MouseAdapter {
+
+        public void mousePressed(MouseEvent e) {
+            JButton clickArrow = (JButton)e.getSource();
+            for (int i = 0; i < myArrowViewers.length; i++) {
+                if (clickArrow == myArrowViewers[i]) {
+                    System.out.println("Hallå");
+                }
+
+            }
+
+
+        }
+    }
 
 
 
@@ -226,5 +262,8 @@ public class PyramidFrame extends JFrame{
     public void updateArea() {
         myBoardViewer.repaint();
     }
+
+
+
 
 }
