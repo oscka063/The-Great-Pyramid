@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: oscka063
@@ -5,7 +7,7 @@
  * Time: 14:29
  * To change this template use File | Settings | File Templates.
  */
-public abstract class Square {
+public abstract class Square{
     private boolean north, east, south, west;
     protected int rotation = 0;
 
@@ -17,6 +19,7 @@ public abstract class Square {
         this.south = south;
         this.west = west;
     }
+    public abstract int getTypeRotation();
 
     public void rotateSquare() {
         rotation = (rotation + 1) % 4;

@@ -1,11 +1,9 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.LinkedList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,13 +14,14 @@ import java.util.LinkedList;
  */
 public class PyramidFrame extends JFrame{
 
-
-
+    public boolean ready;
+    private final int SQUARE_SIZE = 64;
+    private Board myBoard;
     JPanel boardPanel = new JPanel();
     BoardViewer myBoardViewer;
-    ArrowViewer myArrowViewerN, myArrowViewerE, myArrowViewerS, myArrowViewerW;
-    //private LinkedList<ArrowViewer> myArrowViewers = new LinkedList() ;
-    private JButton[] myArrowViewers = new JButton[12];    //Testa mer med JComponent
+    private JButton[] myArrowViewers = new JButton[12];
+    private Player[] players = new Player[1];
+    public GameInformation gameInfo;
 
     MouseAdapter myMA = new MouseAdapterMod();
 
@@ -31,11 +30,14 @@ public class PyramidFrame extends JFrame{
 
     public PyramidFrame(String title, Board pyramidBoard) throws HeadlessException  {
         super(title);
-        myBoardViewer = new BoardViewer(pyramidBoard);
-        setSize(1300, 630);
+        this.myBoard = pyramidBoard;
+        initPlayers();
+        this.myBoardViewer = new BoardViewer(pyramidBoard, players);
+        setSize(1380, 709);
         setResizable(false);
         initLayout();
         createMenus();
+        gameInfo = new GameInformation(myBoard.myIntBoard, players[0].getXPosition(), players[0].getYPosition());
     }
 
 
@@ -94,13 +96,52 @@ public class PyramidFrame extends JFrame{
         c.gridheight = 1;
         add(myArrowViewerN, c);
 */
+        //Adds the arrow buttons
+        for (int i = 0; i < myArrowViewers.length; i++) {
+
+            ImageIcon arrowIcon;
+             final int j = i;
+             final char dir;
+             if (i < 3) {
+                 dir = 'S';
+                 arrowIcon = new ImageIcon("resources/arrow3.png");
+             } else if (i < 6) {
+                 dir = 'E';
+                 arrowIcon = new ImageIcon("resources/arrow2.png");
+             } else if (i < 9) {
+                 dir = 'W';
+                 arrowIcon = new ImageIcon("resources/arrow4.png");
+             } else if (i < 12) {
+                 dir = 'N';
+                 arrowIcon = new ImageIcon("resources/arrow1.png");
+             } else {
+                 dir = 'F';
+                 arrowIcon = new ImageIcon("resources/arrow1.png");
+             }
+
+            myArrowViewers[i] = new JButton(arrowIcon);
+            myArrowViewers[i].setMargin(new Insets (0, 0, 0, 0));
+            myArrowViewers[i].setBorder(null);
+            myArrowViewers[i].setBackground(Color.DARK_GRAY);
+            myArrowViewers[i].setMaximumSize(new Dimension(64, 64));
+
+             myArrowViewers[i].addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e)
+                {
+                    myBoard.insertSquare(((j % 3) * 2)  + 1, dir);
+                    myBoardViewer.repaint();
+                }
+            });
+        }
+
         GridLayout mainLayout = new GridLayout(1,2);
 
         GridBagLayout gbl= new GridBagLayout();
         setLayout(mainLayout);
         boardPanel.setLayout(gbl);
+        boardPanel.setBackground(Color.DARK_GRAY);
         add(boardPanel);
-        boardPanel.addMouseListener(myMA);
+        myBoardViewer.addMouseListener(myMA);
         add(new JTextArea(20, 100));
         GridBagConstraints c = new GridBagConstraints();
 
@@ -124,7 +165,6 @@ public class PyramidFrame extends JFrame{
                 boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers[aViewerCount] = (new JButton("S"));
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
                 c.gridy = 0;
@@ -148,7 +188,6 @@ public class PyramidFrame extends JFrame{
                 boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers[aViewerCount] = (new JButton("E"));
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = 0;
                 c.gridy = i;
@@ -188,7 +227,6 @@ public class PyramidFrame extends JFrame{
                 boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers[aViewerCount] = (new JButton("W"));
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = 8;
                 c.gridy = i;
@@ -198,8 +236,8 @@ public class PyramidFrame extends JFrame{
         }
 
         //Sets the bottom row
-        c.weightx = 0.2;
-        c.weighty = 0.2;
+        c.weightx = 0.1;
+        c.weighty = 0.1;
 
         for (int i = 1; i < 8; i++) {
             if((i % 2) != 0) {
@@ -209,7 +247,6 @@ public class PyramidFrame extends JFrame{
                 boardPanel.add(new EmptySquare(), c);
             }
             else {
-                myArrowViewers[aViewerCount] = new JButton("N");
                 c.fill =GridBagConstraints.BOTH;
                 c.gridx = i;
                 c.gridy = 8;
@@ -225,23 +262,24 @@ public class PyramidFrame extends JFrame{
 
     }
 
+    //Initializes the players
+    public void initPlayers () {
+    players[0] = new Player(0, 0, 0);
+    }
+
+    //Player movement
     class MouseAdapterMod extends MouseAdapter {
-
         public void mousePressed(MouseEvent e) {
-            JButton clickArrow = (JButton)e.getSource();
-            for (int i = 0; i < myArrowViewers.length; i++) {
-                if (clickArrow == myArrowViewers[i]) {
-                    System.out.println("Hallå");
-                }
-
+            if (ready) {
+                players[0].setPosition((e.getX()* myBoard.size)/(myBoard.size * SQUARE_SIZE), (e.getY()*myBoard.size)/(myBoard.size * SQUARE_SIZE));
+                updateArea();
+                ready = false;
             }
-
-
         }
     }
 
 
-
+    //Creates the menus
     public void createMenus() {
         final JMenu file = new JMenu("File");
         JMenuItem fileExit = new JMenuItem("Exit");
@@ -260,6 +298,7 @@ public class PyramidFrame extends JFrame{
         });
     }
     public void updateArea() {
+        players[0].setPosition(gameInfo.getX(), gameInfo.getY());
         myBoardViewer.repaint();
     }
 

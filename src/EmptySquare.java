@@ -17,7 +17,7 @@ public class EmptySquare extends JComponent{
 
     public EmptySquare() {
         try {
-            emptyImg = ImageIO.read(new File("resources/empty.png"));
+            emptyImg = ImageIO.read(new File("resources/empty.gif"));
         } catch (IOException e) {}
     }
 

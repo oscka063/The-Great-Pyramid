@@ -1,3 +1,5 @@
+
+
 /**
  * Created with IntelliJ IDEA.
  * User: oscka063
@@ -5,10 +7,17 @@
  * Time: 11:53
  * To change this template use File | Settings | File Templates.
  */
-public class SquareJunction extends Square {
+public class SquareJunction extends Square{
     public SquareJunction() {
         super(true, true, true, false);
     }
+    private int typeInt = 4;
+    private int typeRotation = typeInt + rotation;
+    @Override
+    public int getTypeRotation () {
+        return typeRotation;
+    }
+
     @Override
     public SquareImages.imageEnum getType() {
         switch (rotation) {

@@ -14,11 +14,11 @@ import java.util.EnumMap;
  */
 public class BoardViewer extends JComponent {
 
-
+    private final int SQUARE_SIZE = 64;
     private Board myBoard;
     //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-    private Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty;
-
+    public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2;
+    private Player[] myPlayers;
 
 
     public EnumMap<SquareImages.imageEnum, Image> imageMap = new EnumMap<SquareImages.imageEnum, Image>(SquareImages.imageEnum.class);
@@ -39,27 +39,34 @@ public class BoardViewer extends JComponent {
         imageMap.put(SquareImages.imageEnum.arrowS, arrow3);
         imageMap.put(SquareImages.imageEnum.arrowW, arrow4);
         imageMap.put(SquareImages.imageEnum.emptySquare, empty);
+        imageMap.put(SquareImages.imageEnum.player1, player1);
+        imageMap.put(SquareImages.imageEnum.player2, player2);
     }
 
 
-    public BoardViewer(Board tempBoard) {
+    public BoardViewer(Board tempBoard, Player[] myPlayers) {
         this.myBoard = tempBoard;
+        this.myPlayers = myPlayers;
         loadImages();
         setImageMap();
     }
 
     public void paintComponent(Graphics g){
         final Graphics2D mySquare = (Graphics2D) g;
+        //Painting the board
         for (int i = 0; i < myBoard.size; i++) {
             for (int j = 0; j < myBoard.size; j++) {
                 //mySquare.drawImage(turn1, 66*j, 66*i, null);
                 Square testSquare = myBoard.getSquare(i, j);
-                System.out.println("x: " + i);
-                System.out.println("y: " + j);
                 SquareImages.imageEnum testEnum = testSquare.getType();
                 Image testImage = imageMap.get(testEnum);
-                mySquare.drawImage(testImage, 64*i, 64*j, null);
+                mySquare.drawImage(testImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
             }
+        }
+        //Painting the players
+        for (int i = 0; i < myPlayers.length; i++) {
+            mySquare.drawImage(player1, myPlayers[i].getXPosition()*SQUARE_SIZE, myPlayers[i].getYPosition()*SQUARE_SIZE, null);
+
         }
     }
 
@@ -80,6 +87,8 @@ public class BoardViewer extends JComponent {
             arrow3 = ImageIO.read(new File("resources/arrow3.png"));
             arrow4 = ImageIO.read(new File("resources/arrow4.png"));
             empty = ImageIO.read(new File("resources/empty.png"));
+            player1 = ImageIO.read(new File("resources/player1.gif"));
+            player2 = ImageIO.read(new File("resources/player2.gif"));
         } catch (IOException e) {}
     }
 
