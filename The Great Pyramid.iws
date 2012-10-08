@@ -64,7 +64,7 @@
       <file leaf-file-name="Board.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="29" selection-start="2641" selection-end="2641" vertical-scroll-proportion="0.0">
+            <state line="20" column="25" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,25 +73,16 @@
       <file leaf-file-name="SquareJunction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SquareJunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="5" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0">
+            <state line="21" column="5" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SquareStraight.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SquareStraight.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SquareStraight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="35" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
+            <state line="21" column="5" selection-start="539" selection-end="539" vertical-scroll-proportion="0.5288889">
               <folding />
             </state>
           </provider>
@@ -100,16 +91,43 @@
       <file leaf-file-name="Square.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="21" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
+            <state line="22" column="38" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PyramidFrame.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SquareGenerator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SquareGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="9" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SquareTurn.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SquareTurn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="31" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SquareImages.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SquareImages.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PyramidFrame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PyramidFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="300" column="65" selection-start="8949" selection-end="8949" vertical-scroll-proportion="3.9512196">
+            <state line="39" column="113" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,19 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardViewer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BoardViewer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="21" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameInformation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameInformation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="31" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+            <state line="22" column="36" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,10 +147,8 @@
       <file leaf-file-name="MainClass.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="53" column="38" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,22 +167,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/GraphicalViewer.java" />
         <option value="$PROJECT_DIR$/src/ArrowListener.java" />
         <option value="$PROJECT_DIR$/src/ArrowViewer.java" />
         <option value="$PROJECT_DIR$/src/PlayerViewer.java" />
         <option value="$PROJECT_DIR$/src/BoardViewer.java" />
         <option value="$PROJECT_DIR$/src/SquareImages.java" />
         <option value="$PROJECT_DIR$/src/EmptySquare.java" />
-        <option value="$PROJECT_DIR$/src/Square.java" />
-        <option value="$PROJECT_DIR$/src/SquareTurn.java" />
-        <option value="$PROJECT_DIR$/src/SquareStraight.java" />
-        <option value="$PROJECT_DIR$/src/SquareJunction.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/GameInformation.java" />
         <option value="$PROJECT_DIR$/src/PyramidFrame.java" />
         <option value="$PROJECT_DIR$/src/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/GameInformation.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
+        <option value="$PROJECT_DIR$/src/SquareStraight.java" />
+        <option value="$PROJECT_DIR$/src/SquareJunction.java" />
+        <option value="$PROJECT_DIR$/src/SquareTurn.java" />
+        <option value="$PROJECT_DIR$/src/Square.java" />
+        <option value="$PROJECT_DIR$/src/SquareGenerator.java" />
       </list>
     </option>
   </component>
@@ -213,6 +220,30 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="The Great Pyramid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="The Great Pyramid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,30 +292,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -299,9 +306,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -491,7 +498,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="32" width="1692" height="1025" extended-state="6" />
+    <frame x="-6" y="32" width="1692" height="1025" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -612,11 +619,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/SquareGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="9" selection-start="1344" selection-end="1344" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ArrowListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="27" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" />
@@ -624,106 +626,98 @@
     </entry>
     <entry file="jar:///usr/jdk/instances/jdk1.7.0/src.zip!/java/awt/event/MouseEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="856" column="46" selection-start="36244" selection-end="36244" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#48059#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
+        <state line="856" column="46" selection-start="36244" selection-end="36244" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ArrowViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="13" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EmptySquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BoardViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="21" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SquareImages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="185" selection-start="370" selection-end="370" vertical-scroll-proportion="0.19512194">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SquareTurn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="365" selection-end="365" vertical-scroll-proportion="0.36585367">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="21" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="5" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BoardViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="21" selection-start="2107" selection-end="2107" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameInformation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="31" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SquareJunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SquareStraight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="35" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="41" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="29" selection-start="2641" selection-end="2641" vertical-scroll-proportion="0.0">
+        <state line="22" column="36" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PyramidFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="300" column="65" selection-start="8949" selection-end="8949" vertical-scroll-proportion="3.9512196">
+        <state line="39" column="113" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="38" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SquareImages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SquareJunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SquareGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="9" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SquareTurn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="31" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="25" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="38" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SquareStraight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="539" selection-end="539" vertical-scroll-proportion="0.5288889">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -11,13 +11,15 @@ public class SquareTurn extends Square{
     public SquareTurn() {
         super(true, true, false, false);
     }
-    private int typeInt = 0;
+    private final int typeInt = 0;
     private int typeRotation = typeInt + rotation;
+    public void updateTypeRotation () {
+        typeRotation = typeInt + rotation;
+    }
     @Override
     public int getTypeRotation () {
         return typeRotation;
     }
-
     @Override
     public SquareImages.imageEnum getType() {
         switch (rotation) {

@@ -19,6 +19,7 @@ public abstract class Square{
         this.south = south;
         this.west = west;
     }
+    public abstract void updateTypeRotation();
     public abstract int getTypeRotation();
 
     public void rotateSquare() {
@@ -29,6 +30,7 @@ public abstract class Square{
         west = south;
         south = east;
         east = tempDir;
+        updateTypeRotation();
     }
     public abstract SquareImages.imageEnum getType();
 

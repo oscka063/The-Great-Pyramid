@@ -8,10 +8,10 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public class GameInformation implements Serializable {
-    private int[][] myBoard;
+    public int[][] gameInfoBoard;
     private int playerXPosition;
     private int playerYPosition;
-    //private Player[] myPlayers;
+
     public int getX() {
         return playerXPosition;
     }
@@ -20,9 +20,8 @@ public class GameInformation implements Serializable {
     }
 
     public GameInformation(int[][] myBoard, int playerXPosition, int playerYPosition) {
-        this.myBoard = myBoard;
+        this.gameInfoBoard = myBoard;
         this.playerXPosition = playerXPosition;
         this.playerYPosition = playerYPosition;
-        //this.myPlayers = myPlayers;
     }
 }

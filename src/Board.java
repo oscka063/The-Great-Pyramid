@@ -10,26 +10,28 @@ import java.io.Serializable;
 public class Board {
     int size;
     Square[][] myBoard;
-    int[][] myIntBoard;
+    public int[][] myIntBoard;
     Square insertionSquare;
 
     public Board(int size) {
         this.size = size;
+        this.myIntBoard = new int[size][size];
         this.myBoard = new Square[size][size];
         initBoard();
+        boardToInteger();
     }
     public void boardToInteger() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 myIntBoard[i][j] = myBoard[i][j].getTypeRotation();
-            }
+                   }
         }
     }
     public void integerToBoard() {
         Square tempSquare = new SquareTurn();
-        System.out.println("Innan ITB");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
+                System.out.println("bit av typen: " + myIntBoard[i][j]);
                 switch (myIntBoard[i][j]) {
                     case 0 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, 0);
                         break;
@@ -58,10 +60,8 @@ public class Board {
                     default :
                         System.out.println("defaultfallet");
                 }
-                System.out.println("omgång: " + j);
             }
         }
-        System.out.println("efter ITB");
     }
 
 

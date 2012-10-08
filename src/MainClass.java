@@ -37,32 +37,23 @@ public class MainClass {
             oops = new ObjectOutputStream(s.getOutputStream());
             oops.writeObject(myFrame.gameInfo);
             myFrame.ready = false;
-            System.out.println("1");
         } else {
             s = new Socket(args[0], 9283);
             myFrame.ready = true;
-            System.out.println("2");
         }
 
 
             while (true) {
-                System.out.println("Innan opis");
-                oips = new ObjectInputStream(s.getInputStream());
-                System.out.println("efter oips");
-                myFrame.gameInfo = (GameInformation)(oips.readObject());
-                System.out.println("efter läsning");
-                myBoard.integerToBoard();
 
-                System.out.println("Integerbrädet");
+                oips = new ObjectInputStream(s.getInputStream());
+                myFrame.gameInfo = (GameInformation)(oips.readObject());
+                myBoard.integerToBoard();
                 myFrame.updateArea();
-                System.out.println("uppdaterat");
                 myFrame.ready = true;
                 while(myFrame.ready) {
                     Thread.sleep(100);
                 }
-                System.out.println("innan oops");
                 oops = new ObjectOutputStream(s.getOutputStream());
-                System.out.println("efter oops");
                 myBoard.boardToInteger();
 
                 oops.writeObject(myFrame.gameInfo);

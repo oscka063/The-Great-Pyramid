@@ -11,8 +11,11 @@ public class SquareStraight extends Square{
     public SquareStraight() {
         super(true, false, true, false);
     }
-    private int typeInt = 8;
+    private final int typeInt = 8;
     private int typeRotation = typeInt + rotation;
+    public void updateTypeRotation () {
+        typeRotation = typeInt + rotation;
+    }
     @Override
     public int getTypeRotation () {
         return typeRotation;
