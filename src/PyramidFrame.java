@@ -18,7 +18,9 @@ public class PyramidFrame extends JFrame{
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
     JPanel boardPanel = new JPanel();
+    JPanel gamePanel = new JPanel();
     BoardViewer myBoardViewer;
+    InsSquareViewer myInsSquareViewer;
     private JButton[] myArrowViewers = new JButton[12];
     private Player[] players = new Player[1];
     public GameInformation gameInfo;
@@ -35,6 +37,8 @@ public class PyramidFrame extends JFrame{
         this.myBoardViewer = new BoardViewer(pyramidBoard, players);
         setSize(1380, 709);
         setResizable(false);
+
+        myInsSquareViewer = new InsSquareViewer(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
         initLayout();
         createMenus();
         gameInfo = new GameInformation(myBoard.myIntTypeBoard, myBoard.myIntRotBoard, myBoard.myInsSquareType, myBoard.myInsSquareRot, players[0].getXPosition(), players[0].getYPosition());
@@ -75,6 +79,8 @@ public class PyramidFrame extends JFrame{
                 public void actionPerformed(ActionEvent e)
                 {
                     myBoard.insertSquare(((j % 3) * 2)  + 1, dir);
+                    myInsSquareViewer.repaint();
+                    myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
                     myBoardViewer.repaint();
                 }
             });
@@ -88,7 +94,9 @@ public class PyramidFrame extends JFrame{
         boardPanel.setBackground(Color.DARK_GRAY);
         add(boardPanel);
         myBoardViewer.addMouseListener(myMA);
-        add(new JTextArea(20, 100));
+        gamePanel.setLayout(new GridLayout(2, 2));
+        add(gamePanel);
+        gamePanel.add(myInsSquareViewer);
         GridBagConstraints c = new GridBagConstraints();
 
 
@@ -222,6 +230,7 @@ public class PyramidFrame extends JFrame{
         myBoard.myIntTypeBoard = gameInfo.getTypeBoard();
         myBoard.myInsSquareRot = gameInfo.getInsRot();
         myBoard.myInsSquareType = gameInfo.getInsType();
+        myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
     }
 
     //Player movement

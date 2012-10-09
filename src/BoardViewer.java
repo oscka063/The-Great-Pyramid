@@ -16,7 +16,6 @@ public class BoardViewer extends JComponent {
 
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
-    //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
     public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2;
     private Player[] myPlayers;
 
@@ -42,6 +41,9 @@ public class BoardViewer extends JComponent {
         imageMap.put(SquareImages.imageEnum.player1, player1);
         imageMap.put(SquareImages.imageEnum.player2, player2);
     }
+    public Image getInsertImage(SquareImages.imageEnum insEnum) {
+        return imageMap.get(insEnum);
+    }
 
 
     public BoardViewer(Board tempBoard, Player[] myPlayers) {
@@ -57,9 +59,9 @@ public class BoardViewer extends JComponent {
         for (int i = 0; i < myBoard.size; i++) {
             for (int j = 0; j < myBoard.size; j++) {
                 //mySquare.drawImage(turn1, 66*j, 66*i, null);
-                Square testSquare = myBoard.getSquare(i, j);
-                SquareImages.imageEnum testEnum = testSquare.getImage();
-                Image testImage = imageMap.get(testEnum);
+                Square tempSquare = myBoard.getSquare(i, j);
+                SquareImages.imageEnum tempEnum = tempSquare.getImage();
+                Image testImage = imageMap.get(tempEnum);
                 mySquare.drawImage(testImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
             }
         }
@@ -91,16 +93,4 @@ public class BoardViewer extends JComponent {
             player2 = ImageIO.read(new File("resources/player2.gif"));
         } catch (IOException e) {}
     }
-
-
-
-
-
-
-        //InputStream input = classLoader.getResourceAsStream("turn.png");
-        //Image tempSquare = ImageIO.read(input);
-
-        //Rectangle2D tempSquare = new Rectangle2D.Float(0, 0, 64, 64);
-        //mySquare.setColor(Color.BLUE);
-        //mySquare.fill(tempSquare);
  }

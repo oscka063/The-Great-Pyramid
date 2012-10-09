@@ -32,12 +32,12 @@ public class MainClass {
 
 
         if (startBoolean) {
-            s = (new ServerSocket(9283)).accept();
+            s = (new ServerSocket(9280)).accept();
             oops = new ObjectOutputStream(s.getOutputStream());
             oops.writeObject(myFrame.gameInfo);
             myFrame.ready = false;
         } else {
-            s = new Socket(args[0], 9283);
+            s = new Socket(args[0], 9280);
             myFrame.ready = true;
         }
 
@@ -56,6 +56,8 @@ public class MainClass {
                 oops = new ObjectOutputStream(s.getOutputStream());
                 myBoard.boardToInteger();
                 myBoard.insSquareToInteger();
+                myFrame.gameInfo.insSquareRot = myBoard.myInsSquareRot;
+                myFrame.gameInfo.insSquareType = myBoard.myInsSquareType;
 
                 oops.writeObject(myFrame.gameInfo);
             }

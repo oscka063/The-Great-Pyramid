@@ -10,8 +10,8 @@ import java.io.Serializable;
 public class GameInformation implements Serializable {
     private int[][] gameInfoTypeBoard;
     private int[][] gameInfoRotBoard;
-    private int insSquareType;
-    private int insSquareRot;
+    public int insSquareType;
+    public int insSquareRot;
     private int playerXPosition;
     private int playerYPosition;
 

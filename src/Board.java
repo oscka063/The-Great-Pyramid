@@ -18,6 +18,8 @@ public class Board {
         this.size = size;
         this.myIntRotBoard = new int[size][size];
         this.myIntTypeBoard = new int[size][size];
+        this.myInsSquareRot = new Integer(0);
+        this.myInsSquareType = new Integer(0);
         this.myBoard = new Square[size][size];
         initBoard();
         boardToInteger();
@@ -36,8 +38,6 @@ public class Board {
         Square tempSquare = new SquareTurn();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                System.out.println("bit av typen: " + myIntTypeBoard[i][j]);
-                System.out.println("Rotation: " + myIntRotBoard[i][j]);
                 switch (myIntTypeBoard[i][j]) {
                     case 0 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, myIntRotBoard[i][j]);
                         break;
@@ -46,7 +46,7 @@ public class Board {
                     case 2 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, myIntRotBoard[i][j]);
                         break;
                     default :
-                        System.out.println("defaultfallet");
+                        System.out.println("Invalid Type");
                 }
             }
         }
@@ -65,7 +65,7 @@ public class Board {
             case 2 :  insertionSquare = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, myInsSquareRot);
                 break;
             default :
-                System.out.println("defaultfallet");
+                System.out.println("Invalid Type");
         }
     }
 
