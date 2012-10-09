@@ -37,65 +37,11 @@ public class PyramidFrame extends JFrame{
         setResizable(false);
         initLayout();
         createMenus();
-        gameInfo = new GameInformation(myBoard.myIntBoard, players[0].getXPosition(), players[0].getYPosition());
+        gameInfo = new GameInformation(myBoard.myIntTypeBoard, myBoard.myIntRotBoard, myBoard.myInsSquareType, myBoard.myInsSquareRot, players[0].getXPosition(), players[0].getYPosition());
     }
 
 
     private void initLayout() {
-/*
-        myArrowViewerN = new ArrowViewer('N');
-        myArrowViewerE = new ArrowViewer('E');
-        myArrowViewerS = new ArrowViewer('S');
-        myArrowViewerW = new ArrowViewer('W');
-
-
-
-        c.fill =GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 0;
-        c.gridwidth = 7;
-        c.gridheight = 1;
-        c.weightx = 0.1;
-        c.weighty = 0.1;
-        c.anchor = GridBagConstraints.PAGE_START;
-
-        add(myArrowViewerS, c);
-
-        c.fill =GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 1;
-        c.weightx = 0.1;
-        c.weighty = 0.1;
-        c.gridheight = 7;
-        c.gridwidth = 1;
-        c.anchor = GridBagConstraints.LINE_END;
-
-        add(myArrowViewerE, c);
-
-        c.fill =GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 1;
-        c.weightx = 0.72;
-        c.weighty = 0.72;
-        c.gridheight = 7;
-        c.gridwidth = 7;
-        c.anchor = GridBagConstraints.LINE_END;
-        add(myBoardViewer, c);
-
-        c.fill =GridBagConstraints.BOTH;
-        c.gridx = 9;
-        c.gridy = 1;
-        c.gridheight = 7;
-        c.gridwidth = 1;
-        add(myArrowViewerW, c);
-
-        c.fill =GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 9;
-        c.gridwidth = 7;
-        c.gridheight = 1;
-        add(myArrowViewerN, c);
-*/
         //Adds the arrow buttons
         for (int i = 0; i < myArrowViewers.length; i++) {
 
@@ -267,11 +213,23 @@ public class PyramidFrame extends JFrame{
     players[0] = new Player(0, 0, 0);
     }
 
+
+    public void implementGameInfo() {
+        for (int i = 0; i < players.length; i++) {
+            players[i].setPosition(gameInfo.getX(), gameInfo.getY());
+        }
+        myBoard.myIntRotBoard = gameInfo.getRotBoard();
+        myBoard.myIntTypeBoard = gameInfo.getTypeBoard();
+        myBoard.myInsSquareRot = gameInfo.getInsRot();
+        myBoard.myInsSquareType = gameInfo.getInsType();
+    }
+
     //Player movement
     class MouseAdapterMod extends MouseAdapter {
         public void mousePressed(MouseEvent e) {
             if (ready) {
                 players[0].setPosition((e.getX()* myBoard.size)/(myBoard.size * SQUARE_SIZE), (e.getY()*myBoard.size)/(myBoard.size * SQUARE_SIZE));
+                gameInfo.setPositions(players[0].getXPosition(), players[0].getYPosition());
                 updateArea();
                 ready = false;
             }
@@ -298,7 +256,6 @@ public class PyramidFrame extends JFrame{
         });
     }
     public void updateArea() {
-        players[0].setPosition(gameInfo.getX(), gameInfo.getY());
         myBoardViewer.repaint();
     }
 

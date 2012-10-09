@@ -24,7 +24,6 @@ public class MainClass {
         ObjectOutputStream oops;
         ObjectInputStream oips;
 
-
         if (args.length == 0) {
             startBoolean = true;
         } else{
@@ -44,10 +43,11 @@ public class MainClass {
 
 
             while (true) {
-
                 oips = new ObjectInputStream(s.getInputStream());
                 myFrame.gameInfo = (GameInformation)(oips.readObject());
+                myFrame.implementGameInfo();
                 myBoard.integerToBoard();
+                myBoard.integerToInsSquare();
                 myFrame.updateArea();
                 myFrame.ready = true;
                 while(myFrame.ready) {
@@ -55,6 +55,7 @@ public class MainClass {
                 }
                 oops = new ObjectOutputStream(s.getOutputStream());
                 myBoard.boardToInteger();
+                myBoard.insSquareToInteger();
 
                 oops.writeObject(myFrame.gameInfo);
             }

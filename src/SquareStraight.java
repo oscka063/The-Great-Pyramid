@@ -11,17 +11,14 @@ public class SquareStraight extends Square{
     public SquareStraight() {
         super(true, false, true, false);
     }
-    private final int typeInt = 8;
-    private int typeRotation = typeInt + rotation;
-    public void updateTypeRotation () {
-        typeRotation = typeInt + rotation;
+    private final int typeInt = 2;
+
+    @Override
+    public int getType () {
+        return typeInt;
     }
     @Override
-    public int getTypeRotation () {
-        return typeRotation;
-    }
-    @Override
-    public SquareImages.imageEnum getType() {
+    public SquareImages.imageEnum getImage() {
         switch (rotation) {
             case 0 : return SquareImages.imageEnum.straightV;
             case 1 : return SquareImages.imageEnum.straightH;

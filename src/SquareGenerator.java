@@ -39,6 +39,8 @@ public class SquareGenerator {
                 break;
             case Junction : tempSquare = setSquare3();
                 break;
+            case Straight : tempSquare = setSquare1();
+                break;
             default : tempSquare = setSquare3();
         }
         for (int i = 0; i < rotation; i++) {

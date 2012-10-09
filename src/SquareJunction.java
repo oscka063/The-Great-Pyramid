@@ -11,18 +11,15 @@ public class SquareJunction extends Square{
     public SquareJunction() {
         super(true, true, true, false);
     }
-    private final int typeInt = 4;
-    private int typeRotation = typeInt + rotation;
-    public void updateTypeRotation () {
-        typeRotation = typeInt + rotation;
-    }
+    private final int typeInt = 1;
+
     @Override
-    public int getTypeRotation () {
-        return typeRotation;
+    public int getType () {
+        return typeInt;
     }
 
     @Override
-    public SquareImages.imageEnum getType() {
+    public SquareImages.imageEnum getImage() {
         switch (rotation) {
             case 0 : return SquareImages.imageEnum.junctionE;
             case 1 : return SquareImages.imageEnum.junctionS;

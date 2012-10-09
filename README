@@ -1,0 +1,3 @@
+1. Stå i /home/oscka063/svnPYRAMID/The Great Pyramid
+2. javac *.java
+3. java -cp src/ MainClass

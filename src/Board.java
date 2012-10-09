@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 /**
  * Created with IntelliJ IDEA.
  * User: oscka063
@@ -10,57 +8,64 @@ import java.io.Serializable;
 public class Board {
     int size;
     Square[][] myBoard;
-    public int[][] myIntBoard;
-    Square insertionSquare;
+    public int[][] myIntTypeBoard;
+    public int[][] myIntRotBoard;
+    public Square insertionSquare;
+    public int myInsSquareRot;
+    public int myInsSquareType;
 
     public Board(int size) {
         this.size = size;
-        this.myIntBoard = new int[size][size];
+        this.myIntRotBoard = new int[size][size];
+        this.myIntTypeBoard = new int[size][size];
         this.myBoard = new Square[size][size];
         initBoard();
         boardToInteger();
+        insSquareToInteger();
     }
     public void boardToInteger() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                myIntBoard[i][j] = myBoard[i][j].getTypeRotation();
-                   }
+                myIntTypeBoard[i][j] = myBoard[i][j].getType();
+                myIntRotBoard[i][j] = myBoard[i][j].getRot();
+                System.out.println(myIntTypeBoard[i][j]);
+            }
         }
     }
     public void integerToBoard() {
         Square tempSquare = new SquareTurn();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                System.out.println("bit av typen: " + myIntBoard[i][j]);
-                switch (myIntBoard[i][j]) {
-                    case 0 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, 0);
+                System.out.println("bit av typen: " + myIntTypeBoard[i][j]);
+                System.out.println("Rotation: " + myIntRotBoard[i][j]);
+                switch (myIntTypeBoard[i][j]) {
+                    case 0 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, myIntRotBoard[i][j]);
                         break;
-                    case 1 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, 1);
+                    case 1 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, myIntRotBoard[i][j]);
                         break;
-                    case 2 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, 2);
-                        break;
-                    case 3 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, 3);
-                        break;
-                    case 4 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, 0);
-                        break;
-                    case 5 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, 1);
-                        break;
-                    case 6 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, 2);
-                        break;
-                    case 7 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, 3);
-                        break;
-                    case 8 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, 0);
-                        break;
-                    case 9 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, 1);
-                        break;
-                    case 10 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, 2);
-                        break;
-                    case 11 : myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, 3);
+                    case 2 :  myBoard[i][j] = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, myIntRotBoard[i][j]);
                         break;
                     default :
                         System.out.println("defaultfallet");
                 }
             }
+        }
+    }
+    public void insSquareToInteger() {
+        myInsSquareRot = insertionSquare.getRot();
+        myInsSquareType = insertionSquare.getType();
+    }
+    public void integerToInsSquare() {
+        Square tempSquare = new SquareTurn();
+        switch (myInsSquareType) {
+            case 0 :  insertionSquare = tempSquare.getFixedSquare(SquareGenerator.squareType.Turn, myInsSquareRot);
+                break;
+            case 1 :  insertionSquare= tempSquare.getFixedSquare(SquareGenerator.squareType.Junction, myInsSquareRot);
+                break;
+            case 2 :  insertionSquare = tempSquare.getFixedSquare(SquareGenerator.squareType.Straight, myInsSquareRot);
+                break;
+            default :
+                System.out.println("defaultfallet");
         }
     }
 

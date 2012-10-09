@@ -19,8 +19,11 @@ public abstract class Square{
         this.south = south;
         this.west = west;
     }
-    public abstract void updateTypeRotation();
-    public abstract int getTypeRotation();
+    public abstract int getType();
+
+    public int getRot() {
+        return rotation;
+    }
 
     public void rotateSquare() {
         rotation = (rotation + 1) % 4;
@@ -30,9 +33,8 @@ public abstract class Square{
         west = south;
         south = east;
         east = tempDir;
-        updateTypeRotation();
     }
-    public abstract SquareImages.imageEnum getType();
+    public abstract SquareImages.imageEnum getImage();
 
     public Square getFixedSquare(SquareGenerator.squareType type, int rotation) {
         return myGenerator.getFixedSquare(type, rotation);

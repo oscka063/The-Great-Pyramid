@@ -58,7 +58,7 @@ public class BoardViewer extends JComponent {
             for (int j = 0; j < myBoard.size; j++) {
                 //mySquare.drawImage(turn1, 66*j, 66*i, null);
                 Square testSquare = myBoard.getSquare(i, j);
-                SquareImages.imageEnum testEnum = testSquare.getType();
+                SquareImages.imageEnum testEnum = testSquare.getImage();
                 Image testImage = imageMap.get(testEnum);
                 mySquare.drawImage(testImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
             }
