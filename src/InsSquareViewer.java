@@ -16,6 +16,7 @@ public class InsSquareViewer extends JComponent {
     public InsSquareViewer(Image tempImg) {
         updateImage(tempImg);
     }
+
     public void updateImage(Image tempImg) {
         this.myImg = tempImg;
     }

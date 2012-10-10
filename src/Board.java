@@ -30,7 +30,6 @@ public class Board {
             for (int j = 0; j < size; j++) {
                 myIntTypeBoard[i][j] = myBoard[i][j].getType();
                 myIntRotBoard[i][j] = myBoard[i][j].getRot();
-                System.out.println(myIntTypeBoard[i][j]);
             }
         }
     }

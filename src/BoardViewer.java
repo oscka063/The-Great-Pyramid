@@ -16,8 +16,10 @@ public class BoardViewer extends JComponent {
 
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
-    public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2;
+    public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2, mummy, spider, snake, goldMask, spire,jar, scarab, coins, ring, emerald, ruby, sapphire, amethyst, coffin, throne, key, eye, bottle, ankh, papyrus, axe, sword, cane, hat;
     private Player[] myPlayers;
+    private int numberOfObjectives;
+    private Objectives myObjectives;
 
 
     public EnumMap<SquareImages.imageEnum, Image> imageMap = new EnumMap<SquareImages.imageEnum, Image>(SquareImages.imageEnum.class);
@@ -46,9 +48,11 @@ public class BoardViewer extends JComponent {
     }
 
 
-    public BoardViewer(Board tempBoard, Player[] myPlayers) {
+    public BoardViewer(Board tempBoard, Player[] myPlayers, Objectives tempObjectives) {
         this.myBoard = tempBoard;
         this.myPlayers = myPlayers;
+        this.myObjectives = tempObjectives;
+        this.numberOfObjectives = 24;
         loadImages();
         setImageMap();
     }
@@ -65,6 +69,30 @@ public class BoardViewer extends JComponent {
                 mySquare.drawImage(testImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
             }
         }
+        //Painting the objectives
+        Image tempImage;
+
+        for (int i = 0; i < myBoard.size; i++) {
+            boolean hasObjective;
+            for (int j = 0; j < myBoard.size; j++) {
+                hasObjective = true;
+                switch(myObjectives.getObjNumber(i, j)) {
+                    case 1 : tempImage = key;
+                        break;
+                    case 2 : tempImage = snake;
+                        break;
+                    case 3 : tempImage = hat;
+                        break;
+                    default :
+                        tempImage = hat;
+                        hasObjective = false;
+                }
+                if (hasObjective) {
+                    mySquare.drawImage(tempImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
+                }
+            }
+        }
+
         //Painting the players
         for (int i = 0; i < myPlayers.length; i++) {
             mySquare.drawImage(player1, myPlayers[i].getXPosition()*SQUARE_SIZE, myPlayers[i].getYPosition()*SQUARE_SIZE, null);
@@ -91,6 +119,9 @@ public class BoardViewer extends JComponent {
             empty = ImageIO.read(new File("resources/empty.png"));
             player1 = ImageIO.read(new File("resources/player1.gif"));
             player2 = ImageIO.read(new File("resources/player2.gif"));
+            hat = ImageIO.read(new File("resources/hat.gif"));
+            snake = ImageIO.read(new File("resources/snake.gif"));
+            key = ImageIO.read(new File("resources/key.gif"));
         } catch (IOException e) {}
     }
  }

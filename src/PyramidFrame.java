@@ -17,10 +17,13 @@ public class PyramidFrame extends JFrame{
     public boolean ready;
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
+    private Objectives myObjectives;
     JPanel boardPanel = new JPanel();
     JPanel gamePanel = new JPanel();
+    JPanel insSquarePanel = new JPanel();
     BoardViewer myBoardViewer;
     InsSquareViewer myInsSquareViewer;
+    ObjectiveViewer myObjViewer;
     private JButton[] myArrowViewers = new JButton[12];
     private Player[] players = new Player[1];
     public GameInformation gameInfo;
@@ -33,8 +36,10 @@ public class PyramidFrame extends JFrame{
     public PyramidFrame(String title, Board pyramidBoard) throws HeadlessException  {
         super(title);
         this.myBoard = pyramidBoard;
+        this.myObjectives = new Objectives(pyramidBoard.size);
         initPlayers();
-        this.myBoardViewer = new BoardViewer(pyramidBoard, players);
+        this.myBoardViewer = new BoardViewer(pyramidBoard, players, myObjectives);
+        this.myObjViewer = new ObjectiveViewer(myObjectives);
         setSize(1380, 709);
         setResizable(false);
 
@@ -78,7 +83,9 @@ public class PyramidFrame extends JFrame{
              myArrowViewers[i].addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e)
                 {
+                    //((j % 3) * 2)  + 1 refers to the movable rows or columns
                     myBoard.insertSquare(((j % 3) * 2)  + 1, dir);
+                    myObjectives.insertSquare(((j % 3) * 2) + 1, dir);
                     myInsSquareViewer.repaint();
                     myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
                     myBoardViewer.repaint();
@@ -96,7 +103,22 @@ public class PyramidFrame extends JFrame{
         myBoardViewer.addMouseListener(myMA);
         gamePanel.setLayout(new GridLayout(2, 2));
         add(gamePanel);
-        gamePanel.add(myInsSquareViewer);
+
+        //Initializes the insSquarePanel
+        insSquarePanel.setLayout(new GridLayout(1, 2));
+        insSquarePanel.add(myInsSquareViewer);
+        JButton rotationButton = new JButton("Rotate");
+        insSquarePanel.add(rotationButton);
+
+        rotationButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                myBoard.insertionSquare.rotateSquare();
+                myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+                myInsSquareViewer.repaint();
+            }
+        });
+
+        gamePanel.add(insSquarePanel);
         GridBagConstraints c = new GridBagConstraints();
 
 
@@ -230,7 +252,9 @@ public class PyramidFrame extends JFrame{
         myBoard.myIntTypeBoard = gameInfo.getTypeBoard();
         myBoard.myInsSquareRot = gameInfo.getInsRot();
         myBoard.myInsSquareType = gameInfo.getInsType();
+        myBoard.integerToInsSquare();
         myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+
     }
 
     //Player movement
@@ -266,6 +290,8 @@ public class PyramidFrame extends JFrame{
     }
     public void updateArea() {
         myBoardViewer.repaint();
+        myInsSquareViewer.repaint();
+        myObjViewer.repaint();
     }
 
 
