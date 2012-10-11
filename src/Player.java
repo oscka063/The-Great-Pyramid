@@ -7,17 +7,15 @@ import java.io.Serializable;
  * Time: 11:13
  * To change this template use File | Settings | File Templates.
  */
-public class Player implements Serializable {
+public class Player implements Serializable{
     private int xPosition;
     private int yPosition;
     private int homeX;
     private int homeY;
-    private int playerNumber;
 
-    public Player(int xPosition, int yPosition, int playerNumber) {
-        this.homeX = this.xPosition = xPosition;
-        this.homeY = this.yPosition = yPosition;
-        this.playerNumber = playerNumber;
+    public Player(int yPosition, int xPosition) {
+        this.yPosition = yPosition;
+        this.xPosition = xPosition;
     }
 
     public int getXPosition() {
@@ -25,6 +23,13 @@ public class Player implements Serializable {
       }
     public int getYPosition() {
         return yPosition;
+    }
+
+    public void setHome(int x, int y) {
+        this.homeX = x;
+        this.xPosition = x;
+        this.homeY = y;
+        this.yPosition = y;
     }
 
     public void setPosition(int x, int y) {

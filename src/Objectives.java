@@ -6,14 +6,17 @@
  * To change this template use File | Settings | File Templates.
  */
 public class Objectives {
-    private int[][] myObjBoard;
+    public int[][] myObjBoard;
     private int size;
-    private int insertionObjective;
+    public int insertionObjective;
 
     public Objectives(int size) {
         myObjBoard = new int[size][size];
         this.size = size;
         initObjectives();
+    }
+    public int getInsImage() {
+        return insertionObjective;
     }
 
     private void initObjectives() {

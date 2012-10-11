@@ -12,17 +12,28 @@ import java.io.File;
  */
 public class InsSquareViewer extends JComponent {
     private Image myImg;
+    private Image objImg;
+    private boolean isObjective = false;
 
     public InsSquareViewer(Image tempImg) {
         updateImage(tempImg);
     }
 
+    public void updateObjective(Image objectiveImg) {
+        objImg = objectiveImg;
+        isObjective = true;
+    }
+
     public void updateImage(Image tempImg) {
         this.myImg = tempImg;
+        isObjective = false;
     }
 
     public void paintComponent(Graphics g) {
         final Graphics2D mySquare = (Graphics2D) g;
         mySquare.drawImage(myImg, 0, 0, null);
+        if (isObjective) {
+            mySquare.drawImage(objImg, 0, 0, null);
+        }
     }
 }

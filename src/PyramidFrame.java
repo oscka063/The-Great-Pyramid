@@ -25,8 +25,9 @@ public class PyramidFrame extends JFrame{
     InsSquareViewer myInsSquareViewer;
     ObjectiveViewer myObjViewer;
     private JButton[] myArrowViewers = new JButton[12];
-    private Player[] players = new Player[1];
+    public Player[] players = new Player[2];
     public GameInformation gameInfo;
+    public int playerNumber;
 
     MouseAdapter myMA = new MouseAdapterMod();
 
@@ -37,18 +38,32 @@ public class PyramidFrame extends JFrame{
         super(title);
         this.myBoard = pyramidBoard;
         this.myObjectives = new Objectives(pyramidBoard.size);
-        initPlayers();
         this.myBoardViewer = new BoardViewer(pyramidBoard, players, myObjectives);
         this.myObjViewer = new ObjectiveViewer(myObjectives);
         setSize(1380, 709);
         setResizable(false);
-
         myInsSquareViewer = new InsSquareViewer(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+        insObjUpdate();
         initLayout();
+        initPlayers();
         createMenus();
-        gameInfo = new GameInformation(myBoard.myIntTypeBoard, myBoard.myIntRotBoard, myBoard.myInsSquareType, myBoard.myInsSquareRot, players[0].getXPosition(), players[0].getYPosition());
+        gameInfo = new GameInformation(myBoard.myIntTypeBoard, myBoard.myIntRotBoard, myObjectives.myObjBoard, myBoard.myInsSquareType, myBoard.myInsSquareRot, myObjectives.insertionObjective, makePositions(players[0].getXPosition(), players[0].getYPosition(), players[1].getXPosition(), players[1].getYPosition()));
     }
 
+    public int[] makePositions(int player1X, int player1Y, int  player2X, int player2Y) {
+        int[] tempPos = new int[4];
+        tempPos[0] = player1X;
+        tempPos[1] = player1Y;
+        tempPos[2] = player2X;
+        tempPos[3] = player2Y;
+        return tempPos;
+    }
+
+    //Initializes the players
+    public void initPlayers () {
+        players[0] = new Player(0, 0);
+        players[1] = new Player(myBoard.size - 1, myBoard.size - 1);
+    }
 
     private void initLayout() {
         //Adds the arrow buttons
@@ -88,6 +103,7 @@ public class PyramidFrame extends JFrame{
                     myObjectives.insertSquare(((j % 3) * 2) + 1, dir);
                     myInsSquareViewer.repaint();
                     myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+                    insObjUpdate();
                     myBoardViewer.repaint();
                 }
             });
@@ -114,11 +130,19 @@ public class PyramidFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 myBoard.insertionSquare.rotateSquare();
                 myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+                insObjUpdate();
                 myInsSquareViewer.repaint();
             }
         });
 
         gamePanel.add(insSquarePanel);
+        JButton readyButton = new JButton("Done");
+        readyButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ready = false;
+            }
+        });
+        gamePanel.add(readyButton);
         GridBagConstraints c = new GridBagConstraints();
 
 
@@ -237,23 +261,32 @@ public class PyramidFrame extends JFrame{
 
 
     }
-
-    //Initializes the players
-    public void initPlayers () {
-    players[0] = new Player(0, 0, 0);
+    private void insObjUpdate() {
+        if (myObjectives.insertionObjective > 0) {
+            myInsSquareViewer.updateObjective(myBoardViewer.getInsObjImage(myObjectives.insertionObjective));
+        }
     }
 
 
     public void implementGameInfo() {
-        for (int i = 0; i < players.length; i++) {
-            players[i].setPosition(gameInfo.getX(), gameInfo.getY());
-        }
+        int[] tempPos = gameInfo.getPositions();
+        players[0].setPosition(tempPos[0], tempPos[1]);
+        players[1].setPosition(tempPos[2], tempPos[3]);
         myBoard.myIntRotBoard = gameInfo.getRotBoard();
         myBoard.myIntTypeBoard = gameInfo.getTypeBoard();
         myBoard.myInsSquareRot = gameInfo.getInsRot();
         myBoard.myInsSquareType = gameInfo.getInsType();
+        myObjectives.myObjBoard = gameInfo.getObjBoard();
+        myObjectives.insertionObjective = gameInfo.getInsObj();
         myBoard.integerToInsSquare();
         myInsSquareViewer.updateImage(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
+        insObjUpdate();
+
+    }
+    public void exportGameInfo() {
+        gameInfo.setInsSquare(myBoard.myInsSquareType, myBoard.myInsSquareRot);
+        gameInfo.setInsObj(myObjectives.insertionObjective);
+        gameInfo.setPositions(makePositions(players[0].getXPosition(), players[0].getYPosition(), players[1].getXPosition(), players[1].getYPosition()));
 
     }
 
@@ -261,10 +294,8 @@ public class PyramidFrame extends JFrame{
     class MouseAdapterMod extends MouseAdapter {
         public void mousePressed(MouseEvent e) {
             if (ready) {
-                players[0].setPosition((e.getX()* myBoard.size)/(myBoard.size * SQUARE_SIZE), (e.getY()*myBoard.size)/(myBoard.size * SQUARE_SIZE));
-                gameInfo.setPositions(players[0].getXPosition(), players[0].getYPosition());
+                players[playerNumber].setPosition((e.getX() * myBoard.size) / (myBoard.size * SQUARE_SIZE), (e.getY() * myBoard.size) / (myBoard.size * SQUARE_SIZE));
                 updateArea();
-                ready = false;
             }
         }
     }

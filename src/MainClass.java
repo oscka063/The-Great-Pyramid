@@ -36,11 +36,18 @@ public class MainClass {
             oops = new ObjectOutputStream(s.getOutputStream());
             oops.writeObject(myFrame.gameInfo);
             myFrame.ready = false;
+            myFrame.playerNumber = 0;
+            //myFrame.player.setHome(0,0);
+            //myFrame.opponent.setHome(myBoard.size - 1, myBoard.size - 1);
+
         } else {
             s = new Socket(args[0], 9280);
             myFrame.ready = true;
-        }
+            myFrame.playerNumber = 1;
+            //myFrame.player.setHome(myBoard.size - 1, myBoard.size - 1);
+            //myFrame.opponent.setHome(0, 0);
 
+        }
 
             while (true) {
                 oips = new ObjectInputStream(s.getInputStream());
@@ -56,8 +63,8 @@ public class MainClass {
                 oops = new ObjectOutputStream(s.getOutputStream());
                 myBoard.boardToInteger();
                 myBoard.insSquareToInteger();
-                myFrame.gameInfo.insSquareRot = myBoard.myInsSquareRot;
-                myFrame.gameInfo.insSquareType = myBoard.myInsSquareType;
+                myFrame.exportGameInfo();
+
 
                 oops.writeObject(myFrame.gameInfo);
             }

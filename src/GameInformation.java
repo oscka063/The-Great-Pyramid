@@ -12,19 +12,23 @@ public class GameInformation implements Serializable {
     private int[][] gameInfoRotBoard;
     public int insSquareType;
     public int insSquareRot;
-    private int playerXPosition;
-    private int playerYPosition;
+    private int[] playerPositions;
+    private int[][] objBoard;
+    private int insObj;
 
+    public void setInsSquare(int insType, int insRot) {
+        insSquareRot = insRot;
+        insSquareType = insType;
+    }
+    public void setInsObj(int objNumber) {
+        insObj = objNumber;
+    }
 
-    public int getX() {
-        return playerXPosition;
+    public int[] getPositions() {
+        return playerPositions;
     }
-    public int getY() {
-        return playerYPosition;
-    }
-    public void setPositions(int x, int y) {
-        playerXPosition = x;
-        playerYPosition = y;
+    public void setPositions(int[] pos) {
+        playerPositions = pos;
     }
     public int[][] getTypeBoard() {
         return gameInfoTypeBoard;
@@ -32,6 +36,13 @@ public class GameInformation implements Serializable {
     public int[][] getRotBoard() {
         return gameInfoRotBoard;
     }
+    public int[][] getObjBoard() {
+        return objBoard;
+    }
+    public int getInsObj() {
+        return insObj;
+    }
+
     public int getInsType() {
         return insSquareType;
     }
@@ -40,12 +51,13 @@ public class GameInformation implements Serializable {
     }
 
 
-    public GameInformation(int[][] myTypeBoard, int[][] myRotBoard, int myInsSquareType, int myInsSquareRot, int playerXPosition, int playerYPosition) {
+    public GameInformation(int[][] myTypeBoard, int[][] myRotBoard, int[][] myObjBoard, int myInsSquareType, int myInsSquareRot, int myInsObj, int[] playerPositions) {
         this.gameInfoTypeBoard = myTypeBoard;
         this.gameInfoRotBoard = myRotBoard;
         this.insSquareRot = myInsSquareRot;
         this.insSquareType = myInsSquareType;
-        this.playerXPosition = playerXPosition;
-        this.playerYPosition = playerYPosition;
+        this.playerPositions = playerPositions;
+        this.objBoard = myObjBoard;
+        this.insObj = myInsObj;
     }
 }

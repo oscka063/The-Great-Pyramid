@@ -16,9 +16,9 @@ public class BoardViewer extends JComponent {
 
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
-    public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2, mummy, spider, snake, goldMask, spire,jar, scarab, coins, ring, emerald, ruby, sapphire, amethyst, coffin, throne, key, eye, bottle, ankh, papyrus, axe, sword, cane, hat;
+    public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2, mummy, spider, goldMask, spire,jar, scarab, coins, ring, emerald, ruby, sapphire, amethyst, coffin, throne, eye, bottle, ankh, papyrus, axe, sword, cane;
+    public Image[] objectiveImages = new Image[25];
     private Player[] myPlayers;
-    private int numberOfObjectives;
     private Objectives myObjectives;
 
 
@@ -40,11 +40,17 @@ public class BoardViewer extends JComponent {
         imageMap.put(SquareImages.imageEnum.arrowS, arrow3);
         imageMap.put(SquareImages.imageEnum.arrowW, arrow4);
         imageMap.put(SquareImages.imageEnum.emptySquare, empty);
-        imageMap.put(SquareImages.imageEnum.player1, player1);
-        imageMap.put(SquareImages.imageEnum.player2, player2);
+        imageMap.put(SquareImages.imageEnum.bluePlayer, player1);
+        imageMap.put(SquareImages.imageEnum.redPlayer, player2);
+        imageMap.put(SquareImages.imageEnum.hat, objectiveImages[1]);
+        imageMap.put(SquareImages.imageEnum.snake, objectiveImages[2]);
+        imageMap.put(SquareImages.imageEnum.key, objectiveImages[3]);
     }
     public Image getInsertImage(SquareImages.imageEnum insEnum) {
         return imageMap.get(insEnum);
+    }
+    public Image getInsObjImage(int objNumber) {
+        return objectiveImages[objNumber];
     }
 
 
@@ -52,7 +58,6 @@ public class BoardViewer extends JComponent {
         this.myBoard = tempBoard;
         this.myPlayers = myPlayers;
         this.myObjectives = tempObjectives;
-        this.numberOfObjectives = 24;
         loadImages();
         setImageMap();
     }
@@ -73,31 +78,16 @@ public class BoardViewer extends JComponent {
         Image tempImage;
 
         for (int i = 0; i < myBoard.size; i++) {
-            boolean hasObjective;
             for (int j = 0; j < myBoard.size; j++) {
-                hasObjective = true;
-                switch(myObjectives.getObjNumber(i, j)) {
-                    case 1 : tempImage = key;
-                        break;
-                    case 2 : tempImage = snake;
-                        break;
-                    case 3 : tempImage = hat;
-                        break;
-                    default :
-                        tempImage = hat;
-                        hasObjective = false;
-                }
-                if (hasObjective) {
-                    mySquare.drawImage(tempImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
+                if(myObjectives.getObjNumber(i, j) > 0) {
+                    mySquare.drawImage(objectiveImages[myObjectives.getObjNumber(i, j)], SQUARE_SIZE*i, SQUARE_SIZE*j, null);
                 }
             }
         }
 
         //Painting the players
-        for (int i = 0; i < myPlayers.length; i++) {
-            mySquare.drawImage(player1, myPlayers[i].getXPosition()*SQUARE_SIZE, myPlayers[i].getYPosition()*SQUARE_SIZE, null);
-
-        }
+        mySquare.drawImage(player1, myPlayers[0].getXPosition()*SQUARE_SIZE, myPlayers[0].getYPosition()*SQUARE_SIZE, null);
+        mySquare.drawImage(player2, myPlayers[1].getXPosition()*SQUARE_SIZE, myPlayers[1].getYPosition()*SQUARE_SIZE, null);
     }
 
         private void loadImages() {
@@ -119,9 +109,9 @@ public class BoardViewer extends JComponent {
             empty = ImageIO.read(new File("resources/empty.png"));
             player1 = ImageIO.read(new File("resources/player1.gif"));
             player2 = ImageIO.read(new File("resources/player2.gif"));
-            hat = ImageIO.read(new File("resources/hat.gif"));
-            snake = ImageIO.read(new File("resources/snake.gif"));
-            key = ImageIO.read(new File("resources/key.gif"));
+            objectiveImages[1] = ImageIO.read(new File("resources/hat.gif"));
+            objectiveImages[2] = ImageIO.read(new File("resources/snake.gif"));
+            objectiveImages[3] = ImageIO.read(new File("resources/key.gif"));
         } catch (IOException e) {}
     }
- }
+}
