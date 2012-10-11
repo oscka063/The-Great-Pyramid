@@ -42,14 +42,14 @@ public class Player implements Serializable{
     }
 
     public void moveNorth() {
-        if (yPosition > 0) {
+        if (yPosition != 0) {
             if (myBoard.myBoard[xPosition][yPosition].north && myBoard.myBoard[xPosition][yPosition - 1].south) {
                 yPosition--;
             }
         }
     }
     public void moveEast() {
-        if (xPosition < size - 1) {
+        if (xPosition != size - 1) {
             if (myBoard.myBoard[xPosition][yPosition].east && myBoard.myBoard[xPosition + 1][yPosition].west) {
             xPosition++;
             }
@@ -57,14 +57,14 @@ public class Player implements Serializable{
     }
 
     public void moveSouth() {
-        if (yPosition < size - 1) {
+        if (yPosition != size - 1) {
             if (myBoard.myBoard[xPosition][yPosition].south && myBoard.myBoard[xPosition][yPosition + 1].north) {
             yPosition++;
             }
         }
     }
     public void moveWest() {
-        if (xPosition > 0) {
+        if (xPosition != 0) {
             if (myBoard.myBoard[xPosition][yPosition].west && myBoard.myBoard[xPosition -1][yPosition].east) {
             xPosition--;
             }

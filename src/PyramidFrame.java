@@ -306,10 +306,8 @@ public class PyramidFrame extends JFrame{
         @Override
         public boolean dispatchKeyEvent(KeyEvent ke) {
             if (ke.getID() == KeyEvent.KEY_PRESSED) {
-                System.out.println("bajs");
                 if (ready) {
                     int i = ke.getKeyCode();
-                    System.out.println(i);
                     if (!isPressed[i]) {
                         isPressed[i] = true;
                         System.out.println(i);
