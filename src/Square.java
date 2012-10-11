@@ -8,7 +8,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Square{
-    private boolean north, east, south, west;
+    public boolean north, east, south, west;
     protected int rotation = 0;
 
     private SquareGenerator myGenerator = new SquareGenerator();

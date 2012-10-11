@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,8 +25,9 @@ public class PyramidFrame extends JFrame{
     public Player[] players = new Player[2];
     public GameInformation gameInfo;
     public int playerNumber;
+    boolean[] isPressed = new boolean[256];
 
-    MouseAdapter myMA = new MouseAdapterMod();
+    //MouseAdapter myMA = new MouseAdapterMod();
 
     private int aViewerCount = 0;
 
@@ -42,6 +40,10 @@ public class PyramidFrame extends JFrame{
         this.myObjViewer = new ObjectiveViewer(myObjectives);
         setSize(1380, 709);
         setResizable(false);
+
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(new MyDispatcher());
+
         myInsSquareViewer = new InsSquareViewer(myBoardViewer.getInsertImage(myBoard.insertionSquare.getImage()));
         insObjUpdate();
         initLayout();
@@ -61,8 +63,8 @@ public class PyramidFrame extends JFrame{
 
     //Initializes the players
     public void initPlayers () {
-        players[0] = new Player(0, 0);
-        players[1] = new Player(myBoard.size - 1, myBoard.size - 1);
+        players[0] = new Player(0, 0, myBoard.size, myBoard);
+        players[1] = new Player(myBoard.size - 1, myBoard.size - 1, myBoard.size, myBoard);
     }
 
     private void initLayout() {
@@ -116,7 +118,7 @@ public class PyramidFrame extends JFrame{
         boardPanel.setLayout(gbl);
         boardPanel.setBackground(Color.DARK_GRAY);
         add(boardPanel);
-        myBoardViewer.addMouseListener(myMA);
+        //myBoardViewer.addMouseListener(myMA);
         gamePanel.setLayout(new GridLayout(2, 2));
         add(gamePanel);
 
@@ -291,14 +293,53 @@ public class PyramidFrame extends JFrame{
     }
 
     //Player movement
-    class MouseAdapterMod extends MouseAdapter {
+ /*   class MouseAdapterMod extends MouseAdapter {
         public void mousePressed(MouseEvent e) {
             if (ready) {
                 players[playerNumber].setPosition((e.getX() * myBoard.size) / (myBoard.size * SQUARE_SIZE), (e.getY() * myBoard.size) / (myBoard.size * SQUARE_SIZE));
                 updateArea();
             }
         }
+    }  */
+
+    private class MyDispatcher implements KeyEventDispatcher {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent ke) {
+            if (ke.getID() == KeyEvent.KEY_PRESSED) {
+                System.out.println("bajs");
+                if (ready) {
+                    int i = ke.getKeyCode();
+                    System.out.println(i);
+                    if (!isPressed[i]) {
+                        isPressed[i] = true;
+                        System.out.println(i);
+                        makeMove(i);
+                    }
+                }
+                updateArea();
+            } else if (ke.getID() == KeyEvent.KEY_RELEASED) {
+                int i = ke.getKeyCode();
+                isPressed[i] = false;
+            }
+            return false;
+        }
     }
+
+
+    public void makeMove(int keyCode) {
+        switch(keyCode) {
+            case 37 : players[playerNumber].moveWest();
+                break;
+            case 38 : players[playerNumber].moveNorth();
+                break;
+            case 39 : players[playerNumber].moveEast();
+                break;
+            case 40 : players[playerNumber].moveSouth();
+                break;
+        }
+    }
+
+
 
 
     //Creates the menus
