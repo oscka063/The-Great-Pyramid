@@ -15,6 +15,8 @@ public class GameInformation implements Serializable {
     private int[] playerPositions;
     private int[][] objBoard;
     private int insObj;
+    public int[] lastMove;
+    private int[] objectivesLeft;
 
     public void setInsSquare(int insType, int insRot) {
         insSquareRot = insRot;
@@ -49,9 +51,16 @@ public class GameInformation implements Serializable {
     public int getInsRot() {
         return insSquareRot;
     }
+    public int[] getObjectivesLeft() {
+        return objectivesLeft;
+    }
+    public void setObjectivesLeft(int[] objectives) {
+        objectivesLeft = objectives;
+    }
 
 
-    public GameInformation(int[][] myTypeBoard, int[][] myRotBoard, int[][] myObjBoard, int myInsSquareType, int myInsSquareRot, int myInsObj, int[] playerPositions) {
+
+    public GameInformation(int[][] myTypeBoard, int[][] myRotBoard, int[][] myObjBoard, int myInsSquareType, int myInsSquareRot, int myInsObj, int[] playerPositions, int[] lastMove, int[] objectivesLeft) {
         this.gameInfoTypeBoard = myTypeBoard;
         this.gameInfoRotBoard = myRotBoard;
         this.insSquareRot = myInsSquareRot;
@@ -59,5 +68,7 @@ public class GameInformation implements Serializable {
         this.playerPositions = playerPositions;
         this.objBoard = myObjBoard;
         this.insObj = myInsObj;
+        this.lastMove = lastMove;
+        this.objectivesLeft = objectivesLeft;
     }
 }

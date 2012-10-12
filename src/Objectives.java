@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Created with IntelliJ IDEA.
  * User: oscka063
@@ -15,15 +17,40 @@ public class Objectives {
         this.size = size;
         initObjectives();
     }
-    public int getInsImage() {
-        return insertionObjective;
-    }
 
     private void initObjectives() {
-        for (int i = 0; i < size - 3; i++) {
-            myObjBoard[i][6] = i;
+        //Sets all objectives to 0
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                myObjBoard[i][j] = 0;
+            }
+        }
+        //90 = blue home, 91 = red home
+        myObjBoard[0][0] = 30;
+        myObjBoard[size - 1][size - 1] = 31;
+
+        Random rnd = new Random();
+        int rndX, rndY;
+        for (int i = 1; i <= 10; i++) {
+            rndX = rnd.nextInt(size);
+            rndY = rnd.nextInt(size);
+            if(validSquare(rndX, rndY)) {
+                myObjBoard[rndX][rndY] = i;
+            } else {
+                //If we cannot place the object, we need to random another place for it
+                i--;
+            }
+        }
+
+    }
+    private boolean validSquare(int x, int y) {
+        if (myObjBoard[x][y] != 0) {
+            return false;
+        } else {
+            return true;
         }
     }
+
     public int getObjNumber(int x, int y) {
         return myObjBoard[x][y];
     }

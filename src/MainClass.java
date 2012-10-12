@@ -36,14 +36,14 @@ public class MainClass {
             oops = new ObjectOutputStream(s.getOutputStream());
             oops.writeObject(myFrame.gameInfo);
             myFrame.ready = false;
-            myFrame.playerNumber = 0;
+            myFrame.setPlayerNumber(0);
             //myFrame.player.setHome(0,0);
             //myFrame.opponent.setHome(myBoard.size - 1, myBoard.size - 1);
 
         } else {
             s = new Socket(args[0], 9280);
             myFrame.ready = true;
-            myFrame.playerNumber = 1;
+            myFrame.setPlayerNumber(1);
             //myFrame.player.setHome(myBoard.size - 1, myBoard.size - 1);
             //myFrame.opponent.setHome(0, 0);
 
@@ -56,7 +56,7 @@ public class MainClass {
                 myBoard.integerToBoard();
                 myBoard.integerToInsSquare();
                 myFrame.updateArea();
-                myFrame.ready = true;
+              //  myFrame.ready = true;
                 while(myFrame.ready) {
                     Thread.sleep(100);
                 }

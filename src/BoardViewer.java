@@ -17,7 +17,7 @@ public class BoardViewer extends JComponent {
     private final int SQUARE_SIZE = 64;
     private Board myBoard;
     public Image turn1, turn2, turn3, turn4, straight1, straight2, junction1, junction2, junction3, junction4, arrow1, arrow2, arrow3, arrow4, empty, player1, player2, mummy, spider, goldMask, spire,jar, scarab, coins, ring, emerald, ruby, sapphire, amethyst, coffin, throne, eye, bottle, ankh, papyrus, axe, sword, cane;
-    public Image[] objectiveImages = new Image[25];
+    public Image[] objectiveImages = new Image[32];
     private Player[] myPlayers;
     private Objectives myObjectives;
 
@@ -42,14 +42,11 @@ public class BoardViewer extends JComponent {
         imageMap.put(SquareImages.imageEnum.emptySquare, empty);
         imageMap.put(SquareImages.imageEnum.bluePlayer, player1);
         imageMap.put(SquareImages.imageEnum.redPlayer, player2);
-        imageMap.put(SquareImages.imageEnum.hat, objectiveImages[1]);
-        imageMap.put(SquareImages.imageEnum.snake, objectiveImages[2]);
-        imageMap.put(SquareImages.imageEnum.key, objectiveImages[3]);
     }
     public Image getInsertImage(SquareImages.imageEnum insEnum) {
         return imageMap.get(insEnum);
     }
-    public Image getInsObjImage(int objNumber) {
+    public Image getObjImage(int objNumber) {
         return objectiveImages[objNumber];
     }
 
@@ -112,6 +109,17 @@ public class BoardViewer extends JComponent {
             objectiveImages[1] = ImageIO.read(new File("resources/hat.gif"));
             objectiveImages[2] = ImageIO.read(new File("resources/snake.gif"));
             objectiveImages[3] = ImageIO.read(new File("resources/key.gif"));
+            objectiveImages[4] = ImageIO.read(new File("resources/amethyst.gif"));
+            objectiveImages[5] = ImageIO.read(new File("resources/spider.gif"));
+            objectiveImages[6] = ImageIO.read(new File("resources/scarab.gif"));
+            objectiveImages[7] = ImageIO.read(new File("resources/coins.gif"));
+            objectiveImages[8] = ImageIO.read(new File("resources/papyrus.gif"));
+            objectiveImages[9] = ImageIO.read(new File("resources/eye.gif"));
+            objectiveImages[10] = ImageIO.read(new File("resources/ring.gif"));
+            objectiveImages[30] = ImageIO.read(new File("resources/blueHome.png"));
+            objectiveImages[31] = ImageIO.read(new File("resources/redHome.png"));
+
+
         } catch (IOException e) {}
     }
 }

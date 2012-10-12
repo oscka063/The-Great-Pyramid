@@ -14,50 +14,17 @@ import java.io.IOException;
 public class ObjectiveViewer extends JComponent {
 
     private int SQUARE_SIZE = 64;
-    private Objectives myObjectives;
-    private int numberOfObjectives;
-    private Image mummy, spider, snake, goldMask, spire,jar, scarab, coins, ring, emerald, ruby, sapphire, amethyst, coffin, throne, key, eye, bottle, ankh, papyrus, axe, sword, cane, hat;
+    Image objImg;
 
-    public ObjectiveViewer(Objectives myObjectives) {
-        this.myObjectives = myObjectives;
-        numberOfObjectives = 24;
-        loadImages();
+    public ObjectiveViewer() {
     }
 
-    private void loadImages() {
-        try  {
-            hat = ImageIO.read(new File("resources/hat.gif"));
-            snake = ImageIO.read(new File("resources/snake.gif"));
-            key = ImageIO.read(new File("resources/key.gif"));
-        } catch (IOException e) {}
-
+    public void updateObjective(Image objectiveImg) {
+        this.objImg = objectiveImg;
     }
 
     public void paintComponent(Graphics g) {
         final Graphics2D objective = (Graphics2D) g;
-
-        Image tempImage;
-
-        for (int i = 0; i < numberOfObjectives; i++) {
-            boolean hasObjective;
-            for (int j = 0; j < numberOfObjectives; j++) {
-                hasObjective = true;
-                switch(myObjectives.getObjNumber(i, j)) {
-                    case 1 : tempImage = key;
-                        break;
-                    case 2 : tempImage = snake;
-                        break;
-                    case 3 : tempImage = hat;
-                        break;
-                    default :
-                        tempImage = hat;
-                        hasObjective = false;
-                }
-                if (hasObjective) {
-                    objective.drawImage(tempImage, SQUARE_SIZE*i, SQUARE_SIZE*j, null);
-                }
-            }
-
+        objective.drawImage(objImg, 0, 0, null);
     }
-}
 }
