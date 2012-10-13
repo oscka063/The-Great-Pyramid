@@ -110,13 +110,13 @@ public class PyramidFrame extends JFrame{
     }
     private void updateMessages() {
         if (hasWon) {
-            gameMessages.setText("Du vann och är bäst.");
+            gameMessages.setText("You won. All hail the pharaoh.");
         }
         else if (ready) {
-            gameMessages.setText("Your turn. \n" + "You have " + objectivesLeft[playerNumber] + " objectives left. \n" + "Your opponent has " + objectivesLeft[opponentNumber]);
+            gameMessages.setText("It's your turn. \n" + "You have " + objectivesLeft[playerNumber] + " objectives left. \n" + "Your opponent has " + objectivesLeft[opponentNumber] + " objectives left.");
         }
         else {
-            gameMessages.setText("Wait for your turn. \n" + "You have " + objectivesLeft[playerNumber] + " objectives left. \n" + "Your opponent has " + objectivesLeft[opponentNumber]);
+            gameMessages.setText("Wait for your turn. \n" + "You have " + objectivesLeft[playerNumber] + " objectives left. \n" + "Your opponent has " + objectivesLeft[opponentNumber] + " objectives left.");
         }
     }
 
@@ -207,6 +207,7 @@ public class PyramidFrame extends JFrame{
         readyButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //Checks if player is standing on his objective
+                if (hasInserted) {
                 if (players[playerNumber].collectedAll & players[playerNumber].isHome()) {
                     hasWon = true;
                 } else if (myObjectives.myObjBoard[players[playerNumber].getXPosition()][players[playerNumber].getYPosition()] == players[playerNumber].playerObjectives[players[playerNumber].goalObjIndex]) {
@@ -216,6 +217,7 @@ public class PyramidFrame extends JFrame{
                     myObjViewer.repaint();
                 }
                 ready = false;
+                }
             }
         });
         gamePanel.add(readyButton);

@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/PyramidFrame.java" line="193" />
+    <bookmark url="file://$PROJECT_DIR$/src/PyramidFrame.java" line="278" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f119f8ab-4b7d-4c15-a6d4-bc66c95c0a03" name="Default" comment="" />
+    <list default="true" id="f119f8ab-4b7d-4c15-a6d4-bc66c95c0a03" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ArrowListener.class" afterPath="$PROJECT_DIR$/src/ArrowListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ArrowViewer.class" afterPath="$PROJECT_DIR$/src/ArrowViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Board.class" afterPath="$PROJECT_DIR$/src/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BoardViewer.class" afterPath="$PROJECT_DIR$/src/BoardViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EmptySquare.class" afterPath="$PROJECT_DIR$/src/EmptySquare.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameInformation.class" afterPath="$PROJECT_DIR$/src/GameInformation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InsSquareViewer.class" afterPath="$PROJECT_DIR$/src/InsSquareViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainClass.class" afterPath="$PROJECT_DIR$/src/MainClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ObjectiveViewer.class" afterPath="$PROJECT_DIR$/src/ObjectiveViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Objectives.class" afterPath="$PROJECT_DIR$/src/Objectives.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Player.class" afterPath="$PROJECT_DIR$/src/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame$1.class" afterPath="$PROJECT_DIR$/src/PyramidFrame$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame$2.class" afterPath="$PROJECT_DIR$/src/PyramidFrame$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame$3.class" afterPath="$PROJECT_DIR$/src/PyramidFrame$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame$4.class" afterPath="$PROJECT_DIR$/src/PyramidFrame$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame$MyDispatcher.class" afterPath="$PROJECT_DIR$/src/PyramidFrame$MyDispatcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame.class" afterPath="$PROJECT_DIR$/src/PyramidFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Square.class" afterPath="$PROJECT_DIR$/src/Square.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareGenerator$1.class" afterPath="$PROJECT_DIR$/src/SquareGenerator$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareGenerator$squareType.class" afterPath="$PROJECT_DIR$/src/SquareGenerator$squareType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareGenerator.class" afterPath="$PROJECT_DIR$/src/SquareGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareImages$imageEnum.class" afterPath="$PROJECT_DIR$/src/SquareImages$imageEnum.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareImages.class" afterPath="$PROJECT_DIR$/src/SquareImages.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareJunction.class" afterPath="$PROJECT_DIR$/src/SquareJunction.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareStraight.class" afterPath="$PROJECT_DIR$/src/SquareStraight.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SquareTurn.class" afterPath="$PROJECT_DIR$/src/SquareTurn.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PyramidFrame.java" afterPath="$PROJECT_DIR$/src/PyramidFrame.java" />
+    </list>
     <ignored path="The Great Pyramid.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,8 +105,11 @@
       <file leaf-file-name="PyramidFrame.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PyramidFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="36" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.061959654">
-              <folding />
+            <state line="126" column="50" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.7241379">
+              <folding>
+                <element signature="e#8068#8975#0" expanded="true" />
+                <element signature="e#8964#8965#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,10 +211,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="y" value="32" />
-    <option name="width" value="1932" />
-    <option name="height" value="1055" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -219,44 +250,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="The Great Pyramid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="The Great Pyramid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -299,9 +292,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
+    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -335,6 +328,24 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -361,24 +372,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -491,30 +484,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="32" width="1932" height="1055" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977018" sideWeight="0.8790233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38117108" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29855716" sideWeight="0.49812934" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24861266" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12185997" sideWeight="0.84350723" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12148823" sideWeight="0.84350723" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15649278" sideWeight="0.49812934" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977018" sideWeight="0.8790233" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24861266" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -647,49 +640,19 @@
         <state line="27" column="35" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/InsSquareViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="5" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Objectives.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="23" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BoardViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="18" selection-start="5543" selection-end="5543" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="23" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="16" selection-start="1778" selection-end="1799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="57" column="16" selection-start="1778" selection-end="1799" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameInformation.java">
+    <entry file="file://$PROJECT_DIR$/src/InsSquareViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="36" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="11" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="5" selection-start="592" selection-end="592" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ObjectiveViewer.java">
@@ -697,10 +660,33 @@
         <state line="27" column="48" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="11" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="18" selection-start="5543" selection-end="5543" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Objectives.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="23" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameInformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="36" selection-start="1455" selection-end="1455" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PyramidFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="36" selection-start="1271" selection-end="1271" vertical-scroll-proportion="0.061959654">
-          <folding />
+        <state line="126" column="50" selection-start="4730" selection-end="4730" vertical-scroll-proportion="0.7241379">
+          <folding>
+            <element signature="e#8068#8975#0" expanded="true" />
+            <element signature="e#8964#8965#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
